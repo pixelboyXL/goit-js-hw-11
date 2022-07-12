@@ -12,7 +12,7 @@
       <div class="input-wrap">
         <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." class="input" />
         <button type="submit" class="search">
-          <svg class="icon icon-search">
+          <svg class="icon">
             <use href="./images/symbol-defs.svg#icon-search"></use>
           </svg>
         </button>
@@ -21,7 +21,16 @@
 
     <div class="gallery"></div>
 
-    <button type="button" class="load-more visually-hidden">LOAD MORE</button>
+    <button type="button" class="load-more visually-hidden">Load more
+      <svg class="icon">
+        <use href="./images/symbol-defs.svg#icon-images"></use>
+      </svg></button>
+
+    <a class="btn-to-top" title="Return to top">
+      <svg class="icon">
+        <use href="./images/symbol-defs.svg#icon-arrow-up2"></use>
+      </svg>
+    </a>
     
     <div class="scroll-guard"></div>
 

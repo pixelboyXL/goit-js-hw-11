@@ -3,6 +3,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 import Notiflix from 'notiflix';
 import { fetchImages, DEFAULT_PAGE, page, perPage, resetPage } from './js/fetchImages';
 import { imageCreate } from './js/imageCreate';
+import { onScroll, onToTopBtn } from './js/scroll';
 
 const form = document.querySelector(".search-form");
 const input = document.querySelector(".input");
@@ -20,6 +21,9 @@ const optionsSL = {
     captionDelay: 250,
 };
 let simpleLightbox;
+
+onScroll();
+onToTopBtn();
 
 // const optionsIO = {
 //     rootMargin: '200px',
@@ -48,10 +52,12 @@ async function onSubmit(event) {
             resetPage();
             const result = await fetchImages(searchValue);
             if (result.hits < 1) {
+                form.reset();
                 clearAll();
                 buttonHidden();
                 Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
             } else {
+                form.reset();
                 gallery.innerHTML = imageCreate(result.hits);
                 simpleLightbox = new SimpleLightbox(".gallery a", optionsSL).refresh();
                 buttonUnHidden();

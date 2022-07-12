@@ -1,3 +1,5 @@
+import { icons } from './icons';
+
 export function imageCreate(images) {
     return images.map((image) => 
         `<div class="gallery--card">
@@ -7,16 +9,16 @@ export function imageCreate(images) {
             </a>
             <div class="galery--info">
                 <p class="galery--item">${image.likes}
-                <b>Likes</b>
+                <b>${icons.likes}</b>
                 </p>
                 <p class="galery--item">${image.views}
-                <b>Views</b>
+                <b>${icons.views}</b>
                 </p>
                 <p class="galery--item">${image.comments}
-                <b>Comments</b>
+                <b>${icons.comments}</b>
                 </p>
                 <p class="galery--item">${image.downloads}
-                <b>Downloads</b>
+                <b>${icons.downloads}</b>
                 </p>
             </div>
         </div>`).join("");
